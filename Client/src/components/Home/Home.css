@@ -1,0 +1,136 @@
+
+.navbar-logo{
+    height: 40px;
+    width: 4opx;
+}
+.blogCard-image{
+    height:30vh;
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.blogCard-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .center-icon {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+   top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .blogCard-image-container:hover .center-icon {
+    opacity: 1;
+  }
+
+  .arrow-icon{
+    color:#E93314;
+  }
+
+  .blogcard-caption{
+    font-weight:bolder;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.756);
+  }
+
+  .latestBlog-caption{
+    font-weight:bold;
+  }
+
+  .latestBlog-sub-caption{
+    color: #5E646A;
+    font-size: 15px;
+  }
+
+  .latestBlog{
+    margin-top: 40px;
+    padding: 20px
+  }
+
+  /* small blog cards */
+
+  .small-blogCard-image-container{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .small-blogCard-image{
+    height:15vh;
+    width: 100%;
+    padding: 5px;
+    border-radius: 15px;
+  }
+
+  .small-blogcard-caption{
+    --maxLines : 2;
+    font-weight:bold;
+    margin-top: 10px;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.756);
+    width: 200px;
+   
+
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--maxLines);
+  }
+
+
+
+  .tab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+  }
+  
+  .tab-buttons {
+    display: flex;
+ 
+
+  }
+  
+  .tab-button {
+    background-color: #E93314;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    outline: none;
+    width: 30vh;
+    color: white;
+    min-width: 100px;
+  }
+  
+  .tab-button.selected {
+    background-color: #333; /* Dark color for selected tab */
+    color: #fff;
+  }
+  
+  .tab-content {
+  
+    border-bottom:1px solid #d8d8d87d;
+    width: 100%;
+    margin-top: 5px;
+    text-align: left;
+
+    padding: 10px;
+  }
+  
+
+
+
+  
+
+
+ 

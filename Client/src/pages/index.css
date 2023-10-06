@@ -1,0 +1,15 @@
+.seemore-button {
+    color: white !important;
+    border-radius: 5px !important;
+    background-color: #272626 !important;
+    width: 95% !important;
+    margin-top: 10px !important;
+    text-transform: none !important;
+    font-weight: bolder !important;
+}
+
+
+.seemore-button:hover{
+    background-color:#292929
+}
+
