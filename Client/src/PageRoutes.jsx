@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
-import NavBar from './components/Home/NavBar';
 import { Home } from './pages/Home';
 import { Posts } from './pages/Posts';
 import useFetch from './Hooks/useFetch';
@@ -9,6 +8,8 @@ import { AllPosts } from './pages/AllPosts';
 import Footer from './components/Footer';
 import SignUp from './components/UserReg/SignUp';
 import SignIn from './components/UserReg/SignIn';
+import Header from './components/Header';
+import { Banner } from './components/Home/Banner';
 
 export const PageRoutes = () => {
  
@@ -31,7 +32,8 @@ export const PageRoutes = () => {
 
   return (
     <div>
-        <NavBar/>
+        <Header/>
+        <Banner/>
         <Routes>
           <Route path="/" exact element={<Home blogs={data? data : ""} />} />
           <Route path="/post/:id" exact element={<Posts blogs={data? data : ""} />} />

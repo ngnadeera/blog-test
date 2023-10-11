@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
-import Slider from '../components/Home/Carousel';
-import BlogCard from '../components/Home/BlogCard';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { LatestBlog } from '../components/Home/LatestBlog';
-import Tabs from '../components/Home/Tabs.jsx';
-import { Button } from '@mui/material';
+
+
 import "./index.css"
 import { useNavigate } from 'react-router-dom';
+import { Topics } from '../components/Home/Topics';
+import { MainCard } from '../components/Home/MainCard';
+import { Subscribe } from '../components/Home/Subscribe';
+import { SearchByTopics } from '../components/Home/SearchByTopics';
+import { AllPostPagination } from '../components/Home/AllPostPagination';
 
 export const Home = (props) => {
   useEffect(() => {
@@ -30,15 +33,17 @@ export const Home = (props) => {
 
   return (
     <div>
-      <Slider />
+
       <Container>
         <Row>
           <Col md={8}>
-            <LatestBlog />
+            <Topics topic={"Top Posts"}/>
+            <MainCard blog={blogs}/>
+            {/* <LatestBlog /> */}
 
-            {latestThreeBlogs.map((blog) => (
+            {/* {latestThreeBlogs.map((blog) => (
               <div key={blog.id}>
-                <BlogCard
+                <BlogCards
                   category={blog.attributes.tags}
                   title={blog.attributes.heading}
                   date={blog.attributes.date}
@@ -49,19 +54,31 @@ export const Home = (props) => {
                   postRoute={`/post/${blog.id}`}
                 />
               </div>
-            ))}
+            ))} */}
           </Col>
-          <Col md={4} style={{marginTop:'11vh'}}>
-            <Tabs />
+          <Col md={3}  className="offset-md-1" >
+          <Topics topic={"Subscribe"}/>
+          <Subscribe/>
+          <div className="search-by-topic">
+          <Topics  topic={"Search by Topic"}/>
+          <SearchByTopics/>
+          </div>
           </Col>
         </Row>
 
         <Row>
-        <Col md={8} style={{display:'flex', justifyContent:"center"}}>
-            <Button className='seemore-button' variant='filled' onClick={()=> navigate('./AllPosts')}>Browse all blogs</Button>
+    
+          <Topics  topic={"All Posts"}/>
+   
+   
+            <AllPostPagination blogs={blogs}/>
 
-        </Col>
-        <Col md={4}></Col>
+      
+
+        
+      
+        
+
         </Row>
       </Container>
 

@@ -1,182 +1,61 @@
-import React from "react";
-import { Button } from "@mui/material";
-import Logo from "../assets/pq_white.png";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import FaxIcon from "@mui/icons-material/Fax";
-import EmailIcon from "@mui/icons-material/Email";
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import React, { useState } from 'react';
+import LinkedIn from "../assets/Icons/common/Vector-3.svg";
+import Facebook from "../assets/Icons/common/Vector-7.svg";
+import Twitter from "../assets/Icons/common/Vector-6.svg";
+import Youtube from "../assets/Icons/common/Vector-2.svg";
 
-export default function Footer() {
-  return (
-    <div className="text-center" style={{ backgroundColor: "black", marginTop:'20px' }}>
-      <Container className="p-4">
- 
-          <form action="">
-            <Container fluid>
-                <Row  >
-                <Col>
-                    <p  style={{ color: "white" }}>
-                    <strong>Sign up for our newsletter</strong>
-                    </p>
-                </Col>
+import LinkedIn1 from "../assets/Icons/common/Vector-4.svg";
+import Facebook1 from "../assets/Icons/common/Vector.svg";
+import Twitter1 from "../assets/Icons/common/Vector-5.svg";
+import Youtube1 from "../assets/Icons/common/Vector-1.svg";
+import pqLogo from "../assets/Icons/common/pq_white.png";
 
-                <Col >
-                    <input
-                    type="email"
-                    placeholder="Email address"
-                    className="mb-4 form-control"
-                    />
-                </Col>
+const Footer = (props) => {
 
-                <Col>
-                    <Button
-                    variant="outlined"
-                    sx={{ color: "white", outlineColor: "white" }}
-                    >
-                    Subscribe
-                    </Button>
-                </Col>
-                </Row>
-</Container>
-          </form>
- 
+    const [social,setSocial] = useState(null);
 
-        <section className="mb-4">
-          <Row className="d-flex justify-content-center">
-            <Col className="md-5 xs-6">
-              <img
-                src={Logo}
-                alt="logo"
-                style={{ width: "100px", marginTop: "2%" }}
-              />
-            </Col>
-            <p className="mb-4 mt-3" style={{ color: "#ffffffe1" }}>
-              <q> Paraqum Technologies </q>
-            </p>
-            <p style={{ color: "#ffffffa9" }}>
-            Paraqum Technologies is one of the emerging network product manufacturers in the Asia Pacific region that specializes in network intelligence and control. In addition to our network products we offer a wide range of high-end electronic design solutions for customer specifications. Driven by our passionate team of individuals, we always bring the latest technology into our products.
-            </p>
-          </Row>
-        </section>
-
-        <section>
-          <Row>
-            <Col
-              lg="4"
-              md="12"
-              className="mb-4 mb-md-0 d-flex flex-column align-items-center"
-            >
-              <h5 className="text-uppercase mt-4 mb-3" style={{color:'white'}}>Contact Us</h5>
-              <ul className="list-unstyled mb-0 d-flex flex-column align-items-start">
-                <li className="d-flex align-items-center mb-2">
-                  <FaxIcon sx={{ marginRight: "8px" }} />
-                  <span style={{ color: "#ffffffa9" }}>
-                    Fax: +94 41 2255 565
-                  </span>
-                </li>
-                <li className="d-flex align-items-center mb-2">
-                  <LocalPhoneIcon sx={{ marginRight: "8px" }} />
-                  <span style={{ color: "#ffffffa9" }}>
-                    Phone: +94 41 2255 565
-                  </span>
-                </li>
-                <li className="d-flex align-items-center mb-2">
-                  <EmailIcon sx={{ marginRight: "8px" }} />
-                  <span style={{ color: "#ffffffa9" }}>
-                    Email: example@example.com
-                  </span>
-                </li>
-              </ul>
-
-              
-            </Col>
-
-            <Col
-              lg="4"
-              md="6"
-              className="mb-4 mb-md-0 d-flex flex-column align-items-center d-xs-none"
-            >
-              <h5 className="text-uppercase mt-4 mb-3" style={{color:'white'}}>About Us</h5>
-              <ul className="list-unstyled mb-0 d-flex flex-column align-items-start">
-                <li className="d-flex align-items-center mb-2">
-                  <a
-                    href="#!"
-                    style={{ textDecoration: "none", color: "#ffffffa9" }}
-                  >
-                    About
-                  </a>
-                </li>
-                <li className="d-flex align-items-center mb-2">
-                  <a
-                    href="#!"
-                    style={{ textDecoration: "none", color: "#ffffffa9" }}
-                  >
-                    Staff
-                  </a>
-                </li>
-                <li className="d-flex align-items-center mb-2">
-                  <a
-                    href="#!"
-                    style={{ textDecoration: "none", color: "#ffffffa9" }}
-                  >
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </Col>
-
-            <Col
-              lg="4"
-              md="6"
-              className="mb-4 mb-md-0 d-flex flex-column align-items-center"
-            >
-              <h5 className="text-uppercase mt-4 mb-3" style={{color:'white'}}>Navigation</h5>
-              <ul className="list-unstyled mb-0 d-flex flex-column align-items-start">
-                <li className="d-flex align-items-center mb-2">
-                  <a
-                    href="#!"
-                    style={{ textDecoration: "none", color: "#ffffffa9"}}
-                  >
-                    About
-                  </a>
-                </li>
-                <li className="d-flex align-items-center mb-2">
-                  <a
-                    href="#!"
-                    style={{ textDecoration: "none", color: "#ffffffa9" }}
-                  >
-                    Staff
-                  </a>
-                </li>
-                <li className="d-flex align-items-center mb-2">
-                  <a
-                    href="#!"
-                    style={{ textDecoration: "none", color: "#ffffffa9" }}
-                  >
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </Col>
-          </Row>
-        </section>
-      </Container>
-
-      <div
-        className="text-center p-2"
-        style={{ backgroundColor: "#292929" }}
-      >
-        <span style={{color:'#ffffffa9'}}> © 2023 Copyright: </span>
-        
-        <a style={{textDecoration:"none"}} className="text-white" href="https://paraqum.com/">
-          Paraqum.com
-        </a>
-      </div>
+    return <div className={"footer"}>
+        <div className={"footer-container"}>
+            <img src={pqLogo} alt={"Paraqum Logo"}  loading="lazy"/>
+            <div className={"footer-contact"}>
+                <div className={"footer-email"}><a href="mailto:info@paraqum.com">info@paraqum.com</a></div>
+                <div className={"footer-filler"}>|</div>
+                <div className={"footer-number"}><a href={"tel:94112099700"}>+94 11 2 099700</a></div>
+            </div>
+            
+            <div className={"footer-social"}>
+                <a href={"https://linkedin.com/company/paraqum"} target={"_blank"} rel={"noopener noreferrer"} onMouseEnter={()=>setSocial(0)} onMouseLeave={()=>setSocial(null)}>
+                    <img src={social === 0 ? LinkedIn1 : LinkedIn} alt={"LinkedIn"}  loading="lazy"/>
+                </a>
+                <a href={"https://www.facebook.com/paraqum/"} target={"_blank"} rel={"noopener noreferrer"} onMouseEnter={()=>setSocial(1)} onMouseLeave={()=>setSocial(null)}>
+                    <img src={social === 1 ? Facebook1 : Facebook} alt={"Facebook"}  loading="lazy"/>
+                </a>
+                <a href={"https://twitter.com/paraqum"} target={"_blank"} rel={"noopener noreferrer"} onMouseEnter={()=>setSocial(2)} onMouseLeave={()=>setSocial(null)}>
+                    <img src={social === 2 ? Twitter1 : Twitter} alt={"Twitter"}  loading="lazy"/>
+                </a>
+                <a href={"https://www.youtube.com/c/paraqum"} target={"_blank"} rel={"noopener noreferrer"} onMouseEnter={()=>setSocial(3)} onMouseLeave={()=>setSocial(null)}>
+                    <img src={social === 3 ? Youtube1 : Youtube} alt={"Youtube"}  loading="lazy"/>
+                </a>
+                
+            </div>
+            <div className={"footer-address"}>
+                <p>Paraqum Technologies(Pvt) Ltd</p>
+                <p>106, Bernard Botejue Business Park</p>
+                <p>Dutugemunu Street, Dehiwala 10350</p>
+                <p>Sri Lanka</p>
+            </div>
+            <div className={"footer-links"}>
+                <h6>Quik Links</h6>
+                <p>Your Subscription</p>
+            </div>
+            <div className={"footer-links"}>
+                {/* <h5>Quick Links</h5> */}
+                {/* <a href={"https://billing.paraqum.com"}>
+                    Your Subscriptions
+                </a> */}
+            </div>
+        </div>
     </div>
-     );
-    }
+}
+
+export default Footer;

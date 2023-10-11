@@ -11,7 +11,6 @@ export const Posts = ({blogs}) => {
   return (
     <div>
         <Post id={id} blog={blogs}/>
-
     </div>
   
   )

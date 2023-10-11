@@ -1,61 +1,62 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { Box } from '@mui/material';
-import './Posts.css'
-import PostCaption from './PostCaption';
-import image from "../../assets/Carousel/Img (2).jpg"
-import { PostContent } from './PostContent';
-import { FontSize } from './FontSize';
-import { useEffect } from 'react';
-import image1 from "../../assets/Carousel/Img (1).jpg"
-import BlogCard from '../Home/BlogCard';
-import { useRef } from 'react';
-import { Comments } from '../Comments/Comments';
-export const Post = (props) => {
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { Box } from "@mui/material";
+import "./Posts.css";
+import PostCaption from "./PostCaption";
+import { PostContent } from "./PostContent";
+import { FontSize } from "./FontSize";
+import { useEffect } from "react";
+import { useRef } from "react";
+import { Comments } from "../Comments/Comments";
+import { ArticleContent } from "./ArticleContent";
+import { Subscribe } from "../Home/Subscribe";
+import { SearchByTopics } from "../Home/SearchByTopics";
+import { Topics } from "../Home/Topics";
+import { ShareThisPost } from "./ShareThisPost";
 
-  const {id,blog} = props
-  console.log(blog)
+export const Post = (props) => {
+  const { id, blog } = props;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const blogid  = id;
+  const blogid = id;
   let blogContent = null;
-  
-  for (const item of blog.data){
-    if (item.id == blogid){
+
+  for (const item of blog.data) {
+    if (item.id == blogid) {
       blogContent = item;
     }
   }
 
-
-
-
   return (
-    <div>
-  
-        <Box className='box-styles'>  
-        <PostCaption
-        category={blogContent.attributes.tags}
-        title={blogContent.attributes.heading}
-        content={blogContent.attributes.subHeading}
-        writer={blogContent.attributes.author}
-        writerImage={`http://localhost:1337${blogContent.attributes.authorImage.data.attributes.url}`}
-        date={blogContent.attributes.date}
-      />
+    <div className="post">
+      <Container  fluid >
+        <Row>
+          <Col md={8}>
+            <ArticleContent blog={blogContent} />
+            <ShareThisPost/>
+          </Col>
 
-      <img className='post-image' src={`http://localhost:1337${blogContent.attributes.coverImage.data.attributes.url}`} />
-        
-        <PostContent content={blogContent.attributes.content}/>
+          <Col className="post-right">
+    
+              <div className="post-subscribe">
+                <Topics topic={"Subscribe"} />
+                <Subscribe />
+              </div>
 
-        <Comments currentUserId="1" />
+              <div className="post-search-by-topic" >
+                <Topics topic={"Search By Topics"}  />
+                <SearchByTopics />
+              </div>
+         
+          </Col>
+        </Row>
+      </Container>
 
-        </Box>
-
-
-
+      
     </div>
-  )
-}
+  );
+};

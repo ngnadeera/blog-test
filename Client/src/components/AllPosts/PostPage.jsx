@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import image from "../../assets/Carousel/Img (1).jpg";
-import BlogCard from '../Home/BlogCard';
 import "./Allposts.css"
 
 export const PostPage = ({blogs}) => {
@@ -26,16 +25,7 @@ export const PostPage = ({blogs}) => {
          {blogs.data.map((blog) => (
            <Col md={{span:6}}  key={blog.id} style={{marginBottom:"10px"}}>
             <Box className="inner-box-styles">
-                <BlogCard
-                  category={blog.attributes.tags}
-                  title={blog.attributes.heading}
-                  date={blog.attributes.date}
-                  description={blog.attributes.subHeading}
-                  author={blog.attributes.author}
-                  authorImg = {`http://localhost:1337${blog.attributes.authorImage.data.attributes.url}`}
-                  imageSrc={`http://localhost:1337${blog.attributes.coverImage.data.attributes.url}`}
-                  postRoute={`/post/${blog.id}`}
-                />
+              
                 </Box>
                </Col>
             ))}
