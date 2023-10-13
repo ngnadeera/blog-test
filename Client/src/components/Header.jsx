@@ -161,7 +161,7 @@ const dropdownItems = [
         sections: [],
         direct: [],
         width: "none",
-        url: "/contact"
+        url: "https://paraqum.com/contact"
     }
 ];
 
@@ -267,7 +267,7 @@ const Header = (props) => {
                     }
                 </div>
                 <div className={"header-solution"}>
-                    <a href={"https://embedded.paraqum.com/"} target={"_blank"} rel={"noreferrer"}>
+                    <a href={"https://paraqum.com/"} target={"_blank"} rel={"noreferrer"}>
                         Paraqum Solutions
                     </a>
                 </div>

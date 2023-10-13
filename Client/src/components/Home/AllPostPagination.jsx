@@ -54,23 +54,9 @@ export const AllPostPagination = ({ blogs }) => {
         </Row>
       </Container>
 
-       {/* {latestThreeBlogs.map((blog) => (
-              <div key={blog.id}>
-                <BlogCard
-                  category={blog.attributes.tags}
-                  title={blog.attributes.heading}
-                  date={blog.attributes.date}
-                  description={blog.attributes.subHeading}
-                  author={blog.attributes.author}
-                  authorImg = {`http://localhost:1337${blog.attributes.authorImage.data.attributes.url}`}
-                  imageSrc={`http://localhost:1337${blog.attributes.coverImage.data.attributes.url}`}
-                  postRoute={`/post/${blog.id}`}
-                />
-              </div>
-            ))} */}
-
       <div className='all-post-pagination'>
         <ThemeProvider theme={theme}>
+          
           <Pagination
             count={pages}
             showFirstButton

@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import DateDisplay from "./DateDisplay ";
 
 export const MainCard = ({blog}) => {
-  const content = blog.data[0];
+  console.log("here",blog)
+  const content = blog;
   const navigate = useNavigate();
   console.log("content",content)
 

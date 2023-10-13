@@ -25,7 +25,7 @@ export const Home = (props) => {
     return dateB - dateA;
   });
 
-    const latestThreeBlogs = sortedBlogs.slice(0, 3);
+    const latestBlog = sortedBlogs[0];
 
 
   const navigate = useNavigate();
@@ -36,27 +36,11 @@ export const Home = (props) => {
 
       <Container>
         <Row>
-          <Col md={8}>
+          <Col md={8} sm={12} className='col-sm-12'>
             <Topics topic={"Top Posts"}/>
-            <MainCard blog={blogs}/>
-            {/* <LatestBlog /> */}
-
-            {/* {latestThreeBlogs.map((blog) => (
-              <div key={blog.id}>
-                <BlogCards
-                  category={blog.attributes.tags}
-                  title={blog.attributes.heading}
-                  date={blog.attributes.date}
-                  description={blog.attributes.subHeading}
-                  author={blog.attributes.author}
-                  authorImg = {`http://localhost:1337${blog.attributes.authorImage.data.attributes.url}`}
-                  imageSrc={`http://localhost:1337${blog.attributes.coverImage.data.attributes.url}`}
-                  postRoute={`/post/${blog.id}`}
-                />
-              </div>
-            ))} */}
+            <MainCard blog={latestBlog}/>
           </Col>
-          <Col md={3}  className="offset-md-1" >
+          <Col md={3} sm={12} className="offset-md-1 col-sm-12" >
           <Topics topic={"Subscribe"}/>
           <Subscribe/>
           <div className="search-by-topic">
@@ -72,12 +56,6 @@ export const Home = (props) => {
    
    
             <AllPostPagination blogs={blogs}/>
-
-      
-
-        
-      
-        
 
         </Row>
       </Container>

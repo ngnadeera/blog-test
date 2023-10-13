@@ -4,9 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Box } from "@mui/material";
 import "./Posts.css";
-import PostCaption from "./PostCaption";
-import { PostContent } from "./PostContent";
-import { FontSize } from "./FontSize";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { Comments } from "../Comments/Comments";
@@ -35,7 +32,7 @@ export const Post = (props) => {
     <div className="post">
       <Container  fluid >
         <Row>
-          <Col md={8}>
+          <Col md={8} className="article-mt-14">
             <ArticleContent blog={blogContent} />
             <ShareThisPost/>
           </Col>
