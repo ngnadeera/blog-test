@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const SearchByTopics = () => {
+
+  const [searched,setSearched] = useState();
+
+  const buttons = [
+    { id: 1, value: 'Network analytics' },
+    { id: 2, value: 'Wisp' },
+    { id: 3, value: 'Congestion Control' },
+    { id: 4, value: 'WI-DI' },
+    { id: 5, value: 'WI-DI Lite' }
+  ]
+
+  const handleClick = (id) => {
+    setSearched(buttons.find(button => button.id == id))
+  }
+  
   return (
     <div className='search-by-topics'>
-        <button className='btn'>Network analytics</button>
-        <button className='btn'>Wisp</button>
-        <button className='btn'>Congestion Control</button>
-        <button className='btn'>WI-DI</button>
-        <button className='btn'>WI-DI Lite</button>
+      
+        {
+          buttons.map((button,index) => (
+            <button id={button.id} className='btn' onClick={() => handleClick(button.id)}>
+                {button.value}
+            </button>
+          ))
+        }
+  
     </div>
   )
 }

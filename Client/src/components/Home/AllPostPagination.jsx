@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Cards } from './Cards';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Chip from '@mui/material/Chip';
+
 
 const theme = createTheme({
   palette: {
@@ -15,8 +17,15 @@ const theme = createTheme({
 });
 
 export const AllPostPagination = ({ blogs }) => {
+
+
+
+  const [isChipVisible,setIsChipVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 3; 
+  
+
+
 
   const totalCards = blogs.data.length;
   const pages = Math.ceil(totalCards / cardsPerPage);
@@ -29,8 +38,18 @@ export const AllPostPagination = ({ blogs }) => {
   const startIndex = (currentPage - 1) * cardsPerPage;
   const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
 
+  const handleDelete = () => {
+      setIsChipVisible(false);
+  }
+
   return (
     <div>
+
+      {isChipVisible && <Chip
+              label="hello"
+              onDelete={handleDelete}
+            />}
+
       <Container
         fluid
         style={{
@@ -41,6 +60,7 @@ export const AllPostPagination = ({ blogs }) => {
           marginLeft: '10px',
         }}
       >
+        
         <Row>
           {blogs.data.slice(startIndex, endIndex).map((blog, index) => (
             <Col key={blog.id} md={4}>

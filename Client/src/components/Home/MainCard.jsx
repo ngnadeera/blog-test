@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 import DateDisplay from "./DateDisplay ";
 
 export const MainCard = ({blog}) => {
-  console.log("here",blog)
+
   const content = blog;
   const navigate = useNavigate();
-  console.log("content",content)
+
 
   const handleClick = () => {
     navigate(`/post/${content.id}`);

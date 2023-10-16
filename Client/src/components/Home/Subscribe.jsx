@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Checkbox, Snackbar  } from '@mui/material';
 import * as Yup from 'yup';
 import { ErrorMessage, useFormik } from 'formik';
-import usePost from '../../Hooks/usePost';
+
 import useFetch from '../../Hooks/useFetch';
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 export const Subscribe = () => {
-  const post = usePost();
+
 
   //getting already existing email list
 
@@ -142,7 +142,6 @@ export const Subscribe = () => {
           <div className='subscribe-privacy'>
             <Checkbox
               {...label}
-              defaultChecked
               sx={{
                 color: '#6a6a6aea',
                 '&.Mui-checked': {

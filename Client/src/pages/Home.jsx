@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 import "./index.css"
 import { useNavigate } from 'react-router-dom';
 import { Topics } from '../components/Home/Topics';
@@ -34,6 +33,7 @@ export const Home = (props) => {
   return (
     <div>
 
+
       <Container>
         <Row>
           <Col md={8} sm={12} className='col-sm-12'>
@@ -59,7 +59,7 @@ export const Home = (props) => {
 
         </Row>
       </Container>
-
+  
     </div>
   );
 };
