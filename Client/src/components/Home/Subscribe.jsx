@@ -16,7 +16,7 @@ export const Subscribe = () => {
   //getting already existing email list
 
   const { loading: fetchLoading, error: fetchError, data: subscribers } = useFetch(
-    'http://localhost:1337/api/subscribers'
+    `http://${process.env.REACT_APP_API_HOST}:1337/api/subscribers`
   );
 
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -55,7 +55,7 @@ export const Subscribe = () => {
       setLoading(true);
       setError('');
 
-      const response = await axios.post('http://localhost:1337/api/subscribers', { data: values });
+      const response = await axios.post(`http://${process.env.REACT_APP_API_HOST}:1337/api/subscribers`, { data: values });
       if (response.error) {
         setError(response.error);
       } else {

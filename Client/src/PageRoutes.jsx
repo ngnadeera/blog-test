@@ -24,7 +24,7 @@ export const PageRoutes = () => {
     },
   };
 
-  let {loading, data, error} = useFetch('http://localhost:1337/api/blogs?populate=*');
+  let {loading, data, error} = useFetch(`http://${process.env.REACT_APP_API_HOST}:1337/api/blogs?populate=*`);
   if (loading) return  <div style={styles.container}>
   <CircularProgress disableShrink />
 </div> 

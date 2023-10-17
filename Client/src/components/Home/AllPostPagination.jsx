@@ -66,7 +66,7 @@ export const AllPostPagination = ({ blogs }) => {
             <Col key={blog.id} md={4}>
               <Cards 
               title={blog.attributes.heading}
-              imagesrc={`http://localhost:1337${blog.attributes.coverImage.data.attributes.url}`} 
+              imagesrc={`http://${process.env.REACT_APP_API_HOST}:1337${blog.attributes.coverImage.data.attributes.url}`} 
               postRoute={`/post/${blog.id}`}
               />
             </Col>

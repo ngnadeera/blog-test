@@ -19,7 +19,7 @@ export const MainCard = ({blog}) => {
   return (
     <div className="main-card">
       <div className="main-card-container">
-        <img className="main-card-image" src={`http://localhost:1337${content.attributes.coverImage.data.attributes.url}`} alt="image" />
+        <img className="main-card-image" src={`http://${process.env.REACT_APP_API_HOST}:1337${content.attributes.coverImage.data.attributes.url}`} alt="image" />
       </div>
       <h4 className="main-card-heading">
       {content.attributes.heading}
