@@ -37,8 +37,8 @@
     "tags": {
       "type": "enumeration",
       "enum": [
-        "Paraqum WI-DI",
-        "Paraqum  WI-DI Lite",
+        "WI-DI Lite",
+        "WI-DI",
         "Technology",
         "Artificial Intelligence",
         "Networks",
@@ -55,15 +55,15 @@
       "required": true
     },
     "authorImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     }
   }
 }

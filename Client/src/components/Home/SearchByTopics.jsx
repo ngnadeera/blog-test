@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { SearchByContext } from './context';
+import { useNavigate } from 'react-router-dom';
+export const SearchByTopics = ({searchByRef}) => {
 
-export const SearchByTopics = () => {
-
+  const {searchByState,setSearchByState} = useContext(SearchByContext);
   const [searched,setSearched] = useState();
+  const navigate  = useNavigate();
 
   const buttons = [
     { id: 1, value: 'Network analytics' },
@@ -13,7 +16,13 @@ export const SearchByTopics = () => {
   ]
 
   const handleClick = (id) => {
-    setSearched(buttons.find(button => button.id == id))
+    setSearchByState((buttons.find(button => button.id == id)).value)
+    navigate('/')
+    
+    const searchByElement = document.getElementById('searchByComponent');
+    if (searchByElement) {
+      searchByElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
   
   return (

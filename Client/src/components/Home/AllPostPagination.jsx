@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Chip from '@mui/material/Chip';
-
+import { SearchByContext } from './context';
 
 const theme = createTheme({
   palette: {
@@ -19,15 +19,14 @@ const theme = createTheme({
 export const AllPostPagination = ({ blogs }) => {
 
 
+  const { searchByState,setSearchByState } = useContext(SearchByContext)
 
-  const [isChipVisible,setIsChipVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 3; 
   
+  const data = searchByState != '' ? blogs.data.filter((blog) => blog.attributes.tags === searchByState) : blogs.data;
 
-
-
-  const totalCards = blogs.data.length;
+  const totalCards = data.length;
   const pages = Math.ceil(totalCards / cardsPerPage);
 
   const handlePageChange = (event, page) => {
@@ -39,32 +38,43 @@ export const AllPostPagination = ({ blogs }) => {
   const endIndex = Math.min(startIndex + cardsPerPage, totalCards);
 
   const handleDelete = () => {
-      setIsChipVisible(false);
+    setSearchByState('');
   }
 
   return (
     <div>
 
-      {isChipVisible && <Chip
-              label="hello"
-              onDelete={handleDelete}
-            />}
+{searchByState !== '' && (
+  <Chip
+    size='large'
+    label={searchByState}
+    onDelete={handleDelete}
+    sx={{
+      ml: '30px',
+      borderRadius: 2, 
+      fontWeight:"600",
+      fontFamily:'Montserrat',
+
+    }}
+  />
+)}
 
       <Container
         fluid
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           alignItems: 'center',
           marginLeft: '10px',
         }}
       >
-        
-        <Row>
-          {blogs.data.slice(startIndex, endIndex).map((blog, index) => (
+                  {data.length === 0 && <div style={{textAlign:'center', width:'100%', height:'200px', marginTop:'100px'}}>  <h3 className='all-post-pagination-nothing-to-display'>Nothing to display</h3></div>}
+
+        <Row> 
+          {data.slice(startIndex, endIndex).map((blog, index) => (
             <Col key={blog.id} md={4}>
-              <Cards 
+              <Cards
               title={blog.attributes.heading}
               imagesrc={`http://${process.env.REACT_APP_API_HOST}:1337${blog.attributes.coverImage.data.attributes.url}`} 
               postRoute={`/post/${blog.id}`}
