@@ -69,7 +69,7 @@ export const AllPostPagination = ({ blogs }) => {
           marginLeft: '10px',
         }}
       >
-                  {data.length === 0 && <div style={{textAlign:'center', width:'100%', height:'200px', marginTop:'100px'}}>  <h3 className='all-post-pagination-nothing-to-display'>Nothing to display</h3></div>}
+                  {data.length === 0 && <div style={{textAlign:'center', width:'100%', height:'200px', marginTop:'100px'}}>  <h3 className='all-post-pagination-nothing-to-display'>nothing to display</h3></div>}
 
         <Row> 
           {data.slice(startIndex, endIndex).map((blog, index) => (

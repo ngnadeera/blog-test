@@ -41,7 +41,7 @@ export const createComment = async (text, parentId= null) => {
         id: Math.random().toString(36).substring(2,9),
         body: text,
         parentId,
-        userId: "1",
+        userId: 1,
         username: "John",
         createdAt: new Date().toISOString(),
     };

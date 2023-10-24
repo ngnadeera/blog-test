@@ -4,7 +4,7 @@ import logo from "../../assets/Carousel/Img (1).jpg";
 import { Button } from "@mui/material";
 import { CommentForm } from "./CommentForm";
 import { formatTimeAgo } from "./TImeFormat";
-
+import BackgroundLetterAvatars from "./BackgroundLetterAvatars";
 export const Comment = ({
   comment,
   replies,
@@ -17,11 +17,11 @@ export const Comment = ({
   updateComment,
 }) => {
   const fiveminutes = 300000;
-  const timePassed = new Date() - new Date(comment.createdAt) > fiveminutes;
+  const timePassed = new Date() - new Date(comment.attributes.createdAt) > fiveminutes;
   const canReply = Boolean(currentUserId);
-  const canEdit = currentUserId === comment.userId && !timePassed;
-  const canDelete = currentUserId === comment.userId && !timePassed;
-  const createdAt = new Date() - new Date(comment.createdAt);
+  const canEdit = currentUserId === comment.attributes.userId && !timePassed;
+  const canDelete = currentUserId === comment.attributes.userId && !timePassed;
+  const createdAt = new Date() - new Date(comment.attributes.createdAt);
   const minutesAgo = Math.floor(createdAt / (1000 * 60));
   const isReplying =
     activeComment &&
@@ -32,23 +32,25 @@ export const Comment = ({
     activeComment.type === "editing" &&
     activeComment.id === comment.id;
   const replyId = parentId ? parentId : comment.id;
-  console.log("is replying",isReplying);
   return (
     <div className="comment">
       <div className="comment-header">
-        <div className="comment-image-container">
+      <BackgroundLetterAvatars name={comment.attributes.username}/>
+
+        {true ? null : <div className="comment-image-container">
           <img className="comment-image" src={logo} />
-        </div>
-        <div className="comment-author">{comment.username}</div>
+        </div>}
+
+        <div className="comment-author">{comment.attributes.username}</div>
         <div className="comment-timestamp">{formatTimeAgo(minutesAgo)}</div>
       </div>
       <div className="comment-body">
-        {!isEditing && <div className="comment-text">{comment.body}</div>}
+        {!isEditing && <div className="comment-text">{comment.attributes.body}</div>}
         {isEditing && (
           <CommentForm
             submitLabel="Update"
             hasCancelButton
-            initialText={comment.body}
+            initialText={comment.attributes.body}
             handleSubmit={(text) => updateComment(text, comment.id)}
             handleCancel={() => setActiveComment(null)}
           />
@@ -63,16 +65,20 @@ export const Comment = ({
             Reply
           </Button>
         )}
+
         {canEdit && (
+          <>
+           |  
           <Button
             className="comment-action"
             onClick={() =>
               setActiveComment({ id: comment.id, type: "editing" })
             }
           >
-            Edit
+           Edit  
           </Button>
-        )}
+         |  
+          </>)}
         {canDelete && (
           <Button
             className="comment-action"

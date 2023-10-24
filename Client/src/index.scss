@@ -81,6 +81,7 @@ code {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: $pq_light_grey;
+
 }
 
 
@@ -101,7 +102,7 @@ code {
 }
 
 .header-left {
-  width: 15%;
+  width: 17%;
 }
 
 .header-left img {
@@ -114,6 +115,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .header-solution {
@@ -264,7 +266,7 @@ code {
   }
   
   .btn.dark {
-    background: $pq_key_color;
+    background: $pq_key_color !important;
     color: $pq_support_color;
   }
   
@@ -272,6 +274,21 @@ code {
     background: #071a2d !important; 
     color: white !important; 
     font-weight: 500 !important;
+}
+
+.btn-signup {
+  background: $pq_key_color !important;
+  width: 100%;
+  color: white !important;
+  border-radius: 5px !important;
+}
+
+.btn-comment{
+  background: $pq_key_color !important;
+  color: white !important;
+  border-radius: 5px !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
   
   .line {
@@ -1101,6 +1118,21 @@ font-size: 11px !important;
     min-width: 200px !important;
   }
   
+}
+
+.boxstyle{
+  padding: 20px;
+  box-shadow: -4px -1px 22px 1px rgba(0, 0, 0, 0.13);
+  border-radius: 20px;
+  margin: 70px 100px 70px 100px;
+}
+
+.profile-input-felids{
+  margin-bottom: 10px;
+}
+
+.profile-form{
+  padding: 50px;
 }
 
 

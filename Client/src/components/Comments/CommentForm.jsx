@@ -19,7 +19,7 @@ export const CommentForm = ({handleSubmit,submitLabel,hasCancelButton = false,in
         onChange={(e) => setText(e.target.value)}
         />
 
-        <Button variant='contained' type='submit' className='comment-form-button' disabled={isTextareaDisabled}>{submitLabel}</Button>
+        <button variant='contained' type='submit' className='btn btn-comment' disabled={isTextareaDisabled}>{submitLabel}</button>
         {hasCancelButton && (
             <Button className='comment-form-button comment-form-cancel-button' onClick={handleCancel}>Cancel </Button>
         )}
