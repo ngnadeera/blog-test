@@ -21,18 +21,29 @@ function stringToColor(string) {
 }
 
 function stringAvatar(name) {
+  let initials = '';
+
+  const nameParts = name.split(' ');
+  if (nameParts.length >= 2) {
+    // If there are at least two name parts, use the first letter from each part.
+    initials = `${nameParts[0][0]}${nameParts[1][0]}`;
+  } else if (nameParts.length === 1) {
+    // If there's only one name part, use the first two letters of that part.
+    initials = nameParts[0].slice(0, 2);
+  }
+
   return {
     sx: {
       bgcolor: stringToColor(name),
     },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    children: initials,
   };
 }
 
-export default function BackgroundLetterAvatars({name}) {
+export default function BackgroundLetterAvatars({ name }) {
   return (
     <>
       <Avatar {...stringAvatar(name)} />
-      </>
+    </>
   );
 }
