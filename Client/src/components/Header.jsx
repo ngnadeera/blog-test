@@ -368,7 +368,7 @@ const Header = (props) => {
                 />
               </IconButton>
               <Menu
-                sx={{overflow:'hidden'}}
+                sx={{overflow:'scroll'}}
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{

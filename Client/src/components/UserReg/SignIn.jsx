@@ -96,7 +96,7 @@ export default function SignIn() {
           <Avatar sx={{ m: 1, bgcolor: '#0d2841' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{fontWeight:'500'}}>
             Sign in
           </Typography>
           <form onSubmit={formik.handleSubmit}>
@@ -140,12 +140,12 @@ export default function SignIn() {
             <p className='error'>{error ? error : ''}</p>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
+              <Link href="/ForgotPassword" variant="body2" style={{fontWeight:'500'}}>
+                  {"Forgot Password"}
                 </Link>
               </Grid>
               <Grid >
-                <Link href="/SignUp" variant="body2">
+                <Link href="/SignUp" variant="body2" style={{fontWeight:'500'}}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -153,6 +153,7 @@ export default function SignIn() {
           </form>
         </Box>
       </Container>
+
 
 
       <Snackbar open={open} autoHideDuration={3000} onClose={() => setOpen(false)}>

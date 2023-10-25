@@ -12,6 +12,9 @@ import { Banner } from './components/Home/Banner';
 import axios from 'axios';
 import { AuthContext } from './helpers/AuthContext';
 import { UserProfile } from './pages/UserProfile';
+import { ResetPassword } from './components/UserReg/ResetPassword';
+import { ForgotPassword } from './components/UserReg/ForgotPassword';
+
 
 export const PageRoutes = () => {
   const [authState, setAuthState] = useState(false);
@@ -71,6 +74,8 @@ export const PageRoutes = () => {
           <Route path="/SignUp" exact element={<SignUp />} />
           <Route path="/SignIn" exact element={<SignIn />} />
           <Route path="/Profile" exact element={authState ? <UserProfile/> : null}/>
+          <Route path="/ResetPassword" exact element={ <ResetPassword/> }/>
+          <Route path="/ForgotPassword" exact element={ <ForgotPassword/> }/>
           </Routes>
           <Footer/>
     </div>

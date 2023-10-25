@@ -93,7 +93,7 @@ export default function SignUp() {
           <Avatar sx={{ m: 1, bgcolor: '#0d2841' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{fontWeight:'500'}}>
             Sign up
           </Typography>
           <form onSubmit={formik.handleSubmit}>
