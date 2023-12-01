@@ -30,6 +30,11 @@
     "postId": {
       "type": "integer",
       "required": true
+    },
+    "Submit": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

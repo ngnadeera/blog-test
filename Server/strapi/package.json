@@ -17,7 +17,8 @@
     "better-sqlite3": "8.6.0",
     "mailgen": "^2.0.27",
     "nodemailer": "^6.9.6",
-    "strapi-plugin-email": "^3.6.11"
+    "strapi-plugin-email": "^3.6.11",
+    "strapi-plugin-image-optimizer": "^2.1.1"
   },
   "author": {
     "name": "A Strapi developer"
