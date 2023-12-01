@@ -1,10 +1,11 @@
 import React from "react";
-import image from "../../assets/Carousel/Img (2).jpg";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import Avatar from "@mui/material/Avatar";
 import author from "../../assets/leader.png"
 import { useNavigate } from "react-router-dom";
 import DateDisplay from "./DateDisplay ";
+
+
 
 export const MainCard = ({blog}) => {
 
@@ -19,7 +20,7 @@ export const MainCard = ({blog}) => {
   return (
     <div className="main-card">
       <div className="main-card-container">
-        <img className="main-card-image" src={`http://${process.env.REACT_APP_API_HOST}:1337${content.attributes.coverImage.data.attributes.url}`} alt="image" />
+        <img className="main-card-image" src={`http://${process.env.REACT_APP_API_HOST}:1337${content.attributes.coverImage.data.attributes.url}`} alt="cover" loading="lazy"/>
       </div>
       <h4 className="main-card-heading">
       {content.attributes.heading}

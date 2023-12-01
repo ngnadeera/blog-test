@@ -59,6 +59,12 @@ export default function SignUp() {
           password: values.password,
         };
         const res = await axios.post(`http://${process.env.REACT_APP_API_HOST}:1337/api/auth/local/register`, values);
+        const id = res.data.user.id;
+        const res1 = await axios.post(`http://${process.env.REACT_APP_API_HOST}:1337/api/avatars`, 
+        {data : {
+          userId : id
+      }}
+      );
         setSuccess(true);
         setTimeout(() => navigate('/SignIn'), 2000);
         
@@ -182,11 +188,12 @@ export default function SignUp() {
             <button
               className='btn btn-signup'
               type="submit"
+              style={{marginTop:'10px', marginBottom:'5px'}}
             >
               Sign Up
             </button>
             {error != '' ? <p className='error' style={{fontSize:'14px', fontWeight:'500'}}>{error}</p> : ''}
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="center">
               <Grid item sx={{mb:4}}>
                 <Link href="/SignIn" variant="body2">
                   Already have an account? Sign in

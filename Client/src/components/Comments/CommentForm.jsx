@@ -1,6 +1,6 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react'
-import "./Comments.css"
+
 
 export const CommentForm = ({handleSubmit,submitLabel,hasCancelButton = false,initialText = '',handleCancel}) => {
     const [text,setText] = useState(initialText);
@@ -19,10 +19,13 @@ export const CommentForm = ({handleSubmit,submitLabel,hasCancelButton = false,in
         onChange={(e) => setText(e.target.value)}
         />
 
+        <p className='comment-form-admin-review-text'>*Please note that every comment you submit will undergo an admin review and will be published here within a few minutes</p>
+
         <button variant='contained' type='submit' className='btn btn-comment' disabled={isTextareaDisabled}>{submitLabel}</button>
         {hasCancelButton && (
-            <Button className='comment-form-button comment-form-cancel-button' onClick={handleCancel}>Cancel </Button>
+            <button className='comment-form-cancel-btn btn btn-comment ' onClick={handleCancel}>Cancel </button>
         )}
+        
     </form>
   )
 }

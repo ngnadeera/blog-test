@@ -31,9 +31,9 @@ export const PageRoutes = () => {
         }).catch((error) => {
           if (error.response && error.response.status === 400) {
             setAuthState(false);
-            console.error("Request failed with status code 400");
+            console.log("Request failed with status code 400");
           } else {
-            console.error("An error occurred:", error);
+            console.log("An error occurred:", error);
             setAuthState(false);
           }
         }) 
@@ -53,9 +53,14 @@ export const PageRoutes = () => {
   };
 
   let {loading, data, error} = useFetch(`http://${process.env.REACT_APP_API_HOST}:1337/api/blogs?populate=*`);
-  if (loading) return  <div style={styles.container}>
+  if (loading) return <> 
+   <Header/>
+   <Banner/>
+  <div style={styles.container}>
   <CircularProgress disableShrink />
 </div> 
+<Footer/>
+</>
   if (error) return <p>error</p>
 
   return (

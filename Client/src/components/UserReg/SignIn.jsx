@@ -126,10 +126,16 @@ export default function SignIn() {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
             />
+            <Grid item xs>
+              <Link href="/ForgotPassword" variant="body2" style={{fontWeight:'400'}}>
+                  {"Forgot Password"}
+                </Link>
+              </Grid>
+
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-              sx={{mb:3}}
+              sx={{mt:2}}
             />
             <button
               className='btn btn-signup'
@@ -139,11 +145,7 @@ export default function SignIn() {
             </button>
             <p className='error'>{error ? error : ''}</p>
             <Grid container>
-              <Grid item xs>
-              <Link href="/ForgotPassword" variant="body2" style={{fontWeight:'500'}}>
-                  {"Forgot Password"}
-                </Link>
-              </Grid>
+              
               <Grid >
                 <Link href="/SignUp" variant="body2" style={{fontWeight:'500'}}>
                   {"Don't have an account? Sign Up"}

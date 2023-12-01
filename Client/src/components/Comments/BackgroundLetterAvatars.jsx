@@ -20,7 +20,7 @@ function stringToColor(string) {
   return color;
 }
 
-function stringAvatar(name) {
+function stringAvatar(name,size, fontSize) {
   let initials = '';
 
   const nameParts = name.split(' ');
@@ -35,15 +35,18 @@ function stringAvatar(name) {
   return {
     sx: {
       bgcolor: stringToColor(name),
+      width: size,  // Adjust the width for a smaller avatar
+      height: size, // Adjust the height for a smaller avatar
+      fontSize: fontSize, // Adjust the font size for smaller initials
     },
     children: initials,
   };
 }
 
-export default function BackgroundLetterAvatars({ name }) {
+export default function BackgroundLetterAvatars({ name, size, fontSize }) {
   return (
     <>
-      <Avatar {...stringAvatar(name)} />
+      <Avatar {...stringAvatar(name, size, fontSize)}  />
     </>
   );
 }

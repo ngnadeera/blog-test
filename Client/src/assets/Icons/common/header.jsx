@@ -81,7 +81,7 @@ const dropdownItems = [
                         url: "/ceySeries/ceyBroker"
                     },
                     {
-                        title: <def>CeyDirect-<i>i</i></def>,
+                        title: "CeyDirect",
                         url: "/ceySeries/ceyDirectI"
                     }
                 ]
@@ -248,7 +248,7 @@ const Header = (props) => {
                     {
                         dropdownItems.map((item, index)=>{
                             return <div className={dropdown === null ? "header-section" : index === 4 &&  dropdown.id === index ? "header-section header-section-contact selected" : dropdown.id === index ? "header-section selected" : "header-section"} onMouseEnter={()=>setDropdown(item)} key={"title_"+index}>
-                                {dropdown !== null && dropdown.width === "none" ? <a href={item.url}>{item.title}</a> : <def>{item.title}</def>}
+                                {dropdown !== null && dropdown.width === "none" ? <a href={item.url}>{item.title}</a> : {item.title}}
                                 <img className={index === 4 ? "header-selected-bar-hidden":"header-selected-bar"} alt="paraqum selected header" src={"/assets/icons/header/dropdownIndicator.svg"}/>
                             </div>
                         })

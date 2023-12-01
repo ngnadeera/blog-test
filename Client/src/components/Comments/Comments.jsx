@@ -11,11 +11,12 @@ import { CommentForm } from "./CommentForm";
 import { AuthContext } from "../../helpers/AuthContext";
 import { LogInRequest } from "./LogInRequest";
 import axios from "axios";
-
+import Snackbar from '@mui/material/Snackbar'; 
+import MuiAlert from '@mui/material/Alert'; 
 export const Comments = ({ currentUserId, username, postId }) => {
   const [backendComments, setBackendComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
-
+  const [ open,setOpen ] = useState(false);
   const { authState } = useContext(AuthContext);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export const Comments = ({ currentUserId, username, postId }) => {
   }, []);
 
   const rootComments = backendComments.filter(
-    (backendComment) => backendComment.attributes.parentId === null
+    (backendComment) => (backendComment.attributes.parentId === null )
   ).sort((a,b) => (
     new Date(b.attributes.createdAt).getTime() - new Date(a.attributes.createdAt).getTime()
   ));
@@ -60,18 +61,19 @@ export const Comments = ({ currentUserId, username, postId }) => {
         }
       )
       .then((res) => {
-        const newComment = {
-          id: res.data.data.id,
-          attributes: {
-            body: text,
-            createdAt: new Date().getTime(),
-            parentId,
-            postId: postId,
-            userId: currentUserId,
-            username: username,
-          },
-        };
-        setBackendComments([newComment, ...backendComments]);
+        // const newComment = {
+        //   id: res.data.data.id,
+        //   attributes: {
+        //     body: text,
+        //     createdAt: new Date().getTime(),
+        //     parentId,
+        //     postId: postId,
+        //     userId: currentUserId,
+        //     username: username,
+        //   },
+        // };
+        // setBackendComments([newComment, ...backendComments]);
+        setOpen(true);
         setActiveComment(null);
       }).catch((error) => {
         console.error("Error adding comment:", error);
@@ -156,13 +158,12 @@ export const Comments = ({ currentUserId, username, postId }) => {
       //function to get replies base on each comment id
       const getReplies = (commentId) => {
           return backendComments
-          .filter((backendComment) => backendComment.attributes.parentId === commentId)
+          .filter((backendComment) => backendComment.attributes.parentId === commentId && backendComment.attributes.Submit === true) 
           .sort(
               (a,b) =>
               new Date(a.attributes.createdAt).getTime() - new Date(b.attributes.createdAt).getTime()
           );
       }
-
   return (
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
@@ -170,8 +171,22 @@ export const Comments = ({ currentUserId, username, postId }) => {
         <div className="comment-form-title">Write Comment</div>
       ) : null}
       {authState ? <CommentForm submitLabel="Write" handleSubmit={addComment}/> : <LogInRequest/>}
+      
       <div className="comment-container">
         {rootComments.map((rootComment) => (
+          (rootComment.attributes.Submit === false && rootComment.attributes.userId === currentUserId) ? 
+         ( <Comment
+            key={rootComment.id}
+            comment={rootComment}
+             replies={getReplies(rootComment.id)}
+            currentUserId={currentUserId}
+             updateComment={updateComment}
+             deleteComment={deleteComment}
+             activeComment={activeComment}
+             setActiveComment={setActiveComment}
+             addComment={addComment}
+          />
+         ) : (rootComment.attributes.Submit === true) ? (
           <Comment
             key={rootComment.id}
             comment={rootComment}
@@ -183,10 +198,18 @@ export const Comments = ({ currentUserId, username, postId }) => {
              setActiveComment={setActiveComment}
              addComment={addComment}
           />
+         ) : ''
         ))}
 
         
       </div>
+
+      <Snackbar open={open} autoHideDuration={3000} onClose={() => setOpen(false)}>
+        <MuiAlert elevation={6} variant="filled" severity="success">
+        Your submitted comment is currently undergoing an administrative review.
+        </MuiAlert>
+      </Snackbar>
+
     </div>
   );
 };
